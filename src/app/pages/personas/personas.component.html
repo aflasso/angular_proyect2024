@@ -1,3 +1,27 @@
-
-
-<p>{{personas}}</p>
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">usuario</th>
+        <th scope="col">email</th>
+        <th scope="col">fecha_creacion</th>
+        <th scope="col">activo</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let persona of personas">
+        <th scope="row">{{persona.id}}</th>
+        <td>{{persona.usuario}}</td>
+        <td>{{persona.email}}</td>
+        <td>{{persona.fecha_creacion}}</td>
+        <td>{{persona.activo}}</td>
+        <td>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <button class="btn btn-danger me-md-2" type="button">Eliminar</button>
+                <button class="btn btn-primary" type="button">Modificar</button>
+              </div>
+        </td>
+      </tr>
+      
+    </tbody>
+  </table>
