@@ -1,4 +1,15 @@
+<div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+
+  <div class="btn-group" role="group" aria-label="Third group">
+    <button [routerLink]="['/FormPersona', -1]" type="button" class="btn btn-outline-success">
+      <i class="fa fa-plus"></i>
+      Nueva Persona
+    </button>
+  </div>
+ 
+</div>
 <table class="table">
+
     <thead>
       <tr>
         <th scope="col">#</th>
@@ -17,8 +28,8 @@
         <td>{{persona.activo}}</td>
         <td>
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <button class="btn btn-primary" (click)="editarUnUsuario(persona.id)" type="button">Modificar</button>
                 <button class="btn btn-danger me-md-2" type="button">Eliminar</button>
-                <button class="btn btn-primary" type="button">Modificar</button>
               </div>
         </td>
       </tr>

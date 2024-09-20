@@ -23,4 +23,9 @@ export class PersonasComponent {
   async cargarPersonasDB() {
     await this.DB.getPersonas().toPromise().then((data: any) => {this.personas = data;console.log(this.personas)})
   }
+
+  editarUnUsuario(idPersona: number | string) {
+    console.log("Persona Escogida", idPersona)
+    this.router.navigate(['/FormPersona', idPersona])
+  }
 }

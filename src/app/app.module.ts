@@ -7,18 +7,22 @@ import { HomeComponent } from './pages/home/home.component';
 import { PersonasComponent } from './pages/personas/personas.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { AddEditPersonaFormComponent } from './components/add-edit-persona-form/add-edit-persona-form.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     PersonasComponent,
-    NavbarComponent
+    NavbarComponent,
+    AddEditPersonaFormComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
