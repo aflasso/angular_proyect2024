@@ -1,14 +1,32 @@
+<div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+
+    <div class="btn-group" role="group" aria-label="Third group">
+      <button [routerLink]="['/FormPokemon', -1]" type="button" class="btn btn-outline-success">
+        <i class="fa fa-plus"></i>
+        Nuevo Pokemon
+      </button>
+    </div>
+   
+  </div>
+
 <div class="container text-center">
     <div class="row">
 
-        <div class="card col-3 mx-4 mb-4">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
+      <div *ngFor="let pokemon of pokemons" class="card" style="width: 18rem;">
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{pokemon.nombre}}</h5>
         </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Nivel: {{pokemon.nivel}}</li>
+          <li class="list-group-item">Tipo: {{pokemon.tipo}}</li>
+          <li class="list-group-item">Entrenador: {{pokemon.entrenador_id}}</li>
+        </ul>
+        <div class="card-body">
+          <a href="#" class="card-link">Card link</a>
+          <a href="#" class="card-link">Another link</a>
+        </div>
+      </div>
 
     </div>
   </div>

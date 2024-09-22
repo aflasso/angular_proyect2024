@@ -1,1 +1,27 @@
-<p>add-edit-form-pokemon works!</p>
+<form (ngSubmit) = "guardar()" #form = "ngForm">
+
+    <div class="mb-3">
+        <label for="Nombre" class="form-label">Nombre</label>
+        <input [(ngModel)] = "pokemon.nombre" name="nombre" type="text" class="form-control" id="Nombre" required>
+      </div>
+
+    <div class="mb-3">
+        <label for="Nivel" class="form-label">Nivel</label>
+        <input [(ngModel)] = "pokemon.nivel" name="nivel" type="number" class="form-control" id="Nivel" required>
+    </div>
+
+    <label class="form-label " for="tipoPokemon">Elige el tipo de Pokémon:</label>
+    <select class="form-select" id="tipoPokemon" name="tipoPokemon" [(ngModel)]="pokemon.tipo" required>
+      <option value="">Selecciona una opción</option>
+      <option *ngFor="let tipo of tipos" [value]="tipo.toLowerCase()">{{tipo}}</option>
+    </select>
+
+    <label class="form-label " for="entrenadores">¿Quien es el dueño?:</label>
+    <select class="form-select" id="entrenadores" name="entrenadores" [(ngModel)]="pokemon.entrenador_id" required>
+      <option value="">Selecciona una opción</option>
+      <option *ngFor="let entrenador of entrenadores" [value]="entrenador.id">{{entrenador.usuario}}</option>
+    </select>
+
+    <button [disabled] = "!form.valid" type="submit" class="btn btn-primary">Submit</button>
+    
+</form>

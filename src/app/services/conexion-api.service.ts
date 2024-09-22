@@ -1,19 +1,17 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs';
-import { URL_LOCAL } from '../config/helpers';
+import { Pokemon, URL_LOCAL } from '../config/helpers';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ConexionApiService {
 
-  constructor(public http: HttpClient) {
-
-   }
+  constructor(public http: HttpClient) {}
 
    
-   public getPersonas() : any {
+   public getPersonas() {
     
     let url = `${URL_LOCAL}/prueba`
 
@@ -65,6 +63,40 @@ export class ConexionApiService {
     let url = `${URL_LOCAL}/prueba/delete/${personaId}`
 
     return this.http.delete(url).pipe(map((resp: any) => {
+      console.log("Servicio", resp)
+
+      return resp
+    }))
+
+  }
+
+
+  public getPokemons() {
+
+    let url = `${URL_LOCAL}/pokemon/`
+
+    return this.http.get(url).pipe(map((resp: any) => {
+      console.log("Servicio", resp)
+      return resp
+    }))
+
+  }
+
+  getPokemon(pokemonId : number) {
+    let url = `${URL_LOCAL}/pokemon/${pokemonId}`
+
+    return this.http.get(url).pipe(map((resp: any) => {
+      console.log("Servicio", resp)
+
+      return resp
+    }))
+  }
+
+  public postPokemon(pokemon : Pokemon) {
+
+    let url = `${URL_LOCAL}/pokemon/new`
+
+    return this.http.post(url, pokemon).pipe(map((resp: any) => {
       console.log("Servicio", resp)
 
       return resp

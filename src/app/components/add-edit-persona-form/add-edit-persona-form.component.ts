@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, ParamMap, Route, Router } from '@angular/router';
 import { ConexionApiService } from '../../services/conexion-api.service';
-import { UsuarioService } from '../../services/usuario.service';
 import Swal from 'sweetalert2';
 
 @Component({
