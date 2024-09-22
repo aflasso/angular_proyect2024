@@ -103,7 +103,29 @@ export class ConexionApiService {
     }))
 
   }
- 
+
+
+   public eliminarPokemon(pokemonId: any) {
+
+    let url = `${URL_LOCAL}/pokemon/delete/${pokemonId}`
+
+    return this.http.delete(url).pipe(map((resp: any) => {
+      console.log("Servicio", resp)
+
+      return resp
+    }))
+
+  }
+
+  public updatePokemon(pokemon: any) {
+    let url = `${URL_LOCAL}/pokemon/update`
+
+    return this.http.put(url, pokemon).pipe(map((resp: any) => {
+      console.log("Servicio", resp)
+
+      return resp
+    }))
+  }
   
    
 }

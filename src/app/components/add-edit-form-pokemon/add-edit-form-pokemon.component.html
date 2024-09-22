@@ -10,17 +10,23 @@
         <input [(ngModel)] = "pokemon.nivel" name="nivel" type="number" class="form-control" id="Nivel" required>
     </div>
 
-    <label class="form-label " for="tipoPokemon">Elige el tipo de Pokémon:</label>
-    <select class="form-select" id="tipoPokemon" name="tipoPokemon" [(ngModel)]="pokemon.tipo" required>
-      <option value="">Selecciona una opción</option>
-      <option *ngFor="let tipo of tipos" [value]="tipo.toLowerCase()">{{tipo}}</option>
-    </select>
+    <ng-container *ngIf="formMode == 'add'">
 
-    <label class="form-label " for="entrenadores">¿Quien es el dueño?:</label>
-    <select class="form-select" id="entrenadores" name="entrenadores" [(ngModel)]="pokemon.entrenador_id" required>
-      <option value="">Selecciona una opción</option>
-      <option *ngFor="let entrenador of entrenadores" [value]="entrenador.id">{{entrenador.usuario}}</option>
-    </select>
+      <label class="form-label " for="tipoPokemon">Elige el tipo de Pokémon:</label>
+      <select class="form-select" id="tipoPokemon" name="tipoPokemon" [(ngModel)]="pokemon.tipo" required>
+        <option value="">Selecciona una opción</option>
+        <option *ngFor="let tipo of tipos" [value]="tipo.toLowerCase()">{{tipo}}</option>
+      </select>
+  
+      <label class="form-label " for="entrenadores">¿Quien es el dueño?:</label>
+      <select class="form-select" id="entrenadores" name="entrenadores" [(ngModel)]="pokemon.entrenador_id" required>
+        <option value="">Selecciona una opción</option>
+        <option *ngFor="let entrenador of entrenadores" [value]="entrenador.id">{{entrenador.usuario}}</option>
+      </select>
+
+    </ng-container>
+
+    
 
     <button [disabled] = "!form.valid" type="submit" class="btn btn-primary">Submit</button>
     

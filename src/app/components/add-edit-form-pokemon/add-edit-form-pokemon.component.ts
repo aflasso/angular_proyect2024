@@ -25,6 +25,8 @@ export class AddEditFormPokemonComponent {
 
   entrenadores!: any
 
+  formMode: string = 'add'
+
   constructor(private router: Router, private activeRoute: ActivatedRoute, private db: ConexionApiService) {}
 
   ngOnInit() {
@@ -38,9 +40,8 @@ export class AddEditFormPokemonComponent {
 
       if (this.pokemon.id != -1) {
         this.cargarPokemon(this.pokemon.id)
+        this.formMode = 'mod'
       }
-
-      console.log(this.pokemon.id)
 
     }catch(error) {
       console.error("Error al cargar pokemon", error)
@@ -55,7 +56,7 @@ export class AddEditFormPokemonComponent {
         console.log("form:", data)
 
         this.pokemon.nombre = data.nombre
-        this.pokemon.entrenador_id = data.entrenador_id
+        this.pokemon.nivel = data.nivel
       },
       error: (error) => {
         console.error('Ocurrio un error al cargar el pokemon:', error)
@@ -120,6 +121,37 @@ export class AddEditFormPokemonComponent {
 
   }
 
+  modificarPokemon(pokemon: Pokemon) {
+
+    console.log(pokemon)
+    this.db.updatePokemon(pokemon).subscribe({
+      next: (data) => {
+          console.log('Nuevo pokemons', data)
+          Swal.fire({
+            title: 'Exito!!!',
+            text: 'Pokemon modificado correctamente',
+            icon: 'success'
+          }).then(() => {
+            this.router.navigate(['/pokemons'])
+          })
+      },
+      error: (error) => {
+        console.error('Error al modificar pokemon', error)
+        Swal.fire({
+          title: 'Oops!!!',
+          text: 'Error al modificar pokemon',
+          icon: 'error'
+        }).then(() => {
+          this.router.navigate(['/pokemons'])
+        })
+      },
+      complete: () => {
+
+      }
+    })
+
+  }
+
   guardar() {
     if (this.pokemon.id == -1) {
       console.log('Entre a nuevo')
@@ -127,7 +159,7 @@ export class AddEditFormPokemonComponent {
       const {nombre, tipo, nivel, entrenador_id} = this.pokemon
       this.nuevoPokemon({nombre, tipo, nivel, entrenador_id})
     } else {
-      // this.modificarPersona()
+      this.modificarPokemon(this.pokemon)
     }
     }
 

@@ -34,37 +34,58 @@ export class PersonasComponent {
 
   eliminarUsuario(personaId: any) {
 
-    this.DB.eliminarPersona(personaId).subscribe({
-      next: (data) => {
-        console.log("Front:", data)
-
-        Swal.fire({
-          title: '¡Éxito!',
-          text: 'El usuario ha sido eliminado exitosamente.',
-          icon: 'success',
-          confirmButtonText: 'Aceptar'
-        });
-
-        this.cargarPersonasDB()
-
-      },
-
-      error: (error) => {
-
-        console.error(error)
-        Swal.fire({
-          title: '¡Error!',
-          text: 'Ocurrió un problema al eliminar el usuario.',
-          icon: 'error',
-          confirmButtonText: 'Intentar de nuevo'
-        });
-
-      },
-
-      complete: () => {
-
+    Swal.fire({
+      title: '¿Estás seguro?',
+      text: "No podrás revertir esta acción",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Sí, eliminar',
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.DB.eliminarPersona(personaId).subscribe({
+          next: (data) => {
+            console.log("Front:", data)
+    
+            Swal.fire({
+              title: '¡Éxito!',
+              text: 'El usuario ha sido eliminado exitosamente.',
+              icon: 'success',
+              confirmButtonText: 'Aceptar'
+            });
+    
+            this.cargarPersonasDB()
+    
+          },
+    
+          error: (error) => {
+    
+            console.error(error)
+            Swal.fire({
+              title: '¡Error!',
+              text: 'Ocurrió un problema al eliminar el usuario.',
+              icon: 'error',
+              confirmButtonText: 'Intentar de nuevo'
+            });
+    
+          },
+    
+          complete: () => {
+    
+          }
+        })
+      } else {
+                Swal.fire({
+          title: 'Cancelado',
+          text: 'Tu Usuario esta a salvo',
+          icon: 'error'
+        })
       }
     })
+
+    
 
   }
 }

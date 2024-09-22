@@ -13,18 +13,23 @@
     <div class="row">
 
       <div *ngFor="let pokemon of pokemons" class="card" style="width: 18rem;">
-        <img src="..." class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">{{pokemon.nombre}}</h5>
         </div>
         <ul class="list-group list-group-flush">
           <li class="list-group-item">Nivel: {{pokemon.nivel}}</li>
           <li class="list-group-item">Tipo: {{pokemon.tipo}}</li>
-          <li class="list-group-item">Entrenador: {{pokemon.entrenador_id}}</li>
+          <li class="list-group-item">Entrenador: {{pokemon.User.usuario}}</li>
         </ul>
         <div class="card-body">
-          <a href="#" class="card-link">Card link</a>
-          <a href="#" class="card-link">Another link</a>
+
+            <div class="btn-group" role="group" aria-label="Third group">
+
+              <button class="btn btn-primary" (click) = modificarPokemon(pokemon.id)  type="button">Modificar</button>
+              <button class="btn btn-danger me-md-2" (click)="eliminarPokemon(pokemon.id)" type="button">Eliminar</button>
+              
+            </div>
+
         </div>
       </div>
 
