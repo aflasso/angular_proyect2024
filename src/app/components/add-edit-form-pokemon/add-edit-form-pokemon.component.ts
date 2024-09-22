@@ -153,6 +153,8 @@ export class AddEditFormPokemonComponent {
   }
 
   guardar() {
+
+    console.log(this.pokemon)
     if (this.pokemon.id == -1) {
       console.log('Entre a nuevo')
       console.log(this.pokemon)

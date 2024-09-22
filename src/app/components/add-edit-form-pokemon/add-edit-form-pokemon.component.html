@@ -19,8 +19,9 @@
       </select>
   
       <label class="form-label " for="entrenadores">¿Quien es el dueño?:</label>
-      <select class="form-select" id="entrenadores" name="entrenadores" [(ngModel)]="pokemon.entrenador_id" required>
+      <select class="form-select" id="entrenadores" name="entrenadores" [(ngModel)]="pokemon.entrenador_id">
         <option value="">Selecciona una opción</option>
+        <option [value]="null">Salvaje</option>
         <option *ngFor="let entrenador of entrenadores" [value]="entrenador.id">{{entrenador.usuario}}</option>
       </select>
 

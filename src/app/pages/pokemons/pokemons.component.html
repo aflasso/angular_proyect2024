@@ -19,7 +19,12 @@
         <ul class="list-group list-group-flush">
           <li class="list-group-item">Nivel: {{pokemon.nivel}}</li>
           <li class="list-group-item">Tipo: {{pokemon.tipo}}</li>
-          <li class="list-group-item">Entrenador: {{pokemon.User.usuario}}</li>
+          <li *ngIf="pokemon.User; else noEntrenador" class="list-group-item" >Entrenador: {{pokemon.User.usuario}}</li>
+          
+          <ng-template #noEntrenador>
+            <li class="list-group-item" >Salvaje</li>
+          </ng-template>
+        
         </ul>
         <div class="card-body">
 
