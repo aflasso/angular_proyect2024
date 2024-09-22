@@ -29,7 +29,7 @@
         <td>
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                 <button class="btn btn-primary" (click)="editarUnUsuario(persona.id)" type="button">Modificar</button>
-                <button class="btn btn-danger me-md-2" type="button">Eliminar</button>
+                <button class="btn btn-danger me-md-2" (click)="eliminarUsuario(persona.id)" type="button">Eliminar</button>
               </div>
         </td>
       </tr>

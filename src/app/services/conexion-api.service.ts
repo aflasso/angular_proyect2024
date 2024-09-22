@@ -45,6 +45,32 @@ export class ConexionApiService {
     }))
 
    }
+
+  /**
+   * updatePersona
+   */
+  public updatePersona(body: any) {
+    let url = `${URL_LOCAL}/prueba/update`
+
+    return this.http.put(url, body = body).pipe(map((resp: any) => {
+      console.log("Servicio", resp)
+
+      return resp
+    }))
+  }
+
+
+  public eliminarPersona(personaId: any) {
+
+    let url = `${URL_LOCAL}/prueba/delete/${personaId}`
+
+    return this.http.delete(url).pipe(map((resp: any) => {
+      console.log("Servicio", resp)
+
+      return resp
+    }))
+
+  }
  
   
    

@@ -9,6 +9,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { AddEditPersonaFormComponent } from './components/add-edit-persona-form/add-edit-persona-form.component';
 import { FormsModule } from '@angular/forms';
+import { PokemonsComponent } from './pages/pokemons/pokemons.component';
+import { AddEditFormPokemonComponent } from './components/add-edit-form-pokemon/add-edit-form-pokemon.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { FormsModule } from '@angular/forms';
     HomeComponent,
     PersonasComponent,
     NavbarComponent,
-    AddEditPersonaFormComponent
+    AddEditPersonaFormComponent,
+    PokemonsComponent,
+    AddEditFormPokemonComponent
   ],
   imports: [
     BrowserModule,
