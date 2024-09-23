@@ -97,13 +97,47 @@ export class AddEditFormObjetoComponent {
 
   }
 
+  
+  modificarObjeto(objetoId: Objeto) {
+
+    console.log(objetoId)
+    this.db.updateObjeto(objetoId).subscribe({
+      next: (data) => {
+          console.log('Nuevo objeto', data)
+          Swal.fire({
+            title: 'Exito!!!',
+            text: 'Objeto modificado correctamente',
+            icon: 'success'
+          }).then(() => {
+            this.router.navigate(['/objetos'])
+          })
+      },
+      error: (error) => {
+        console.error('Error al modificar objeto', error)
+        Swal.fire({
+          title: 'Oops!!!',
+          text: 'Error al modificar objeto',
+          icon: 'error'
+        }).then(() => {
+          this.router.navigate(['/objetos'])
+        })
+      },
+      complete: () => {
+
+      }
+    })
+
+  }
+
+
+
   guardar() {
     console.log("datos enviados", this.objeto)
 
     if (this.objeto.id == -1) {
       this.nuevoObjeto(this.objeto)
     } else {
-      
+      this.modificarObjeto(this.objeto)
     }
   }
 
