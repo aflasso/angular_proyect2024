@@ -11,3 +11,11 @@ export interface Pokemon {
     activo?: boolean | null
 
 }
+
+export interface Objeto {
+
+    id?: number | null
+    nombre : string
+    descripcion : string | null
+
+}

@@ -5,6 +5,8 @@ import { PersonasComponent } from './pages/personas/personas.component';
 import { AddEditPersonaFormComponent } from './components/add-edit-persona-form/add-edit-persona-form.component';
 import { PokemonsComponent } from './pages/pokemons/pokemons.component';
 import { AddEditFormPokemonComponent } from './components/add-edit-form-pokemon/add-edit-form-pokemon.component';
+import { ObjetosComponent } from './pages/objetos/objetos.component';
+import { AddEditFormObjetoComponent } from './components/add-edit-form-objeto/add-edit-form-objeto.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -12,6 +14,8 @@ const routes: Routes = [
   {path: 'FormPersona/:id', component: AddEditPersonaFormComponent},
   {path: 'pokemons', component: PokemonsComponent},
   {path: 'FormPokemon/:id', component: AddEditFormPokemonComponent},
+  {path: 'objetos', component: ObjetosComponent},
+  {path: 'FormObjeto/:id', component: AddEditFormObjetoComponent},
   {path: '**', pathMatch: 'full', component: HomeComponent}
 ];
 

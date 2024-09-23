@@ -1,0 +1,15 @@
+<form (ngSubmit) = "guardar()" #form = "ngForm">
+
+    <div class="mb-3">
+        <label for="Nombre" class="form-label">Nombre</label>
+        <input [(ngModel)] = "objeto.nombre" name="nombre" type="text" class="form-control" id="Nombre" required>
+      </div>
+
+    <div class="mb-3">
+        <label for="descripcion" class="form-label">Descripcion</label>
+        <input [(ngModel)] = "objeto.descripcion" name="descripcion" type="text" class="form-control" id="descripcion" required>
+    </div>
+
+    <button [disabled] = "!form.valid" type="submit" class="btn btn-primary">Submit</button>
+    
+</form>

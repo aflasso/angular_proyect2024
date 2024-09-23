@@ -11,6 +11,8 @@ import { AddEditPersonaFormComponent } from './components/add-edit-persona-form/
 import { FormsModule } from '@angular/forms';
 import { PokemonsComponent } from './pages/pokemons/pokemons.component';
 import { AddEditFormPokemonComponent } from './components/add-edit-form-pokemon/add-edit-form-pokemon.component';
+import { AddEditFormObjetoComponent } from './components/add-edit-form-objeto/add-edit-form-objeto.component';
+import { ObjetosComponent } from './pages/objetos/objetos.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { AddEditFormPokemonComponent } from './components/add-edit-form-pokemon/
     NavbarComponent,
     AddEditPersonaFormComponent,
     PokemonsComponent,
-    AddEditFormPokemonComponent
+    AddEditFormPokemonComponent,
+    AddEditFormObjetoComponent,
+    ObjetosComponent
   ],
   imports: [
     BrowserModule,

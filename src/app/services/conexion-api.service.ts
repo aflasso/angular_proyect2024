@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs';
-import { Pokemon, URL_LOCAL } from '../config/helpers';
+import { Objeto, Pokemon, URL_LOCAL } from '../config/helpers';
 
 @Injectable({
   providedIn: 'root'
@@ -126,6 +126,64 @@ export class ConexionApiService {
       return resp
     }))
   }
-  
+ 
+  // ........................................................
+
+  public getObjetos() {
+
+    let url = `${URL_LOCAL}/objeto/`
+
+    return this.http.get(url).pipe(map((resp: any) => {
+      console.log("Servicio", resp)
+      return resp
+    }))
+
+  }
+
+  public getObjeto(objetoId : number) {
+    let url = `${URL_LOCAL}/objeto/${objetoId}`
+
+    return this.http.get(url).pipe(map((resp: any) => {
+      console.log("Servicio", resp)
+
+      return resp
+    }))
+  }
+
+  public postObjeto(objeto : Objeto) {
+
+    let url = `${URL_LOCAL}/objeto/new`
+
+    return this.http.post(url, objeto).pipe(map((resp: any) => {
+      console.log("Servicio", resp)
+
+      return resp
+    }))
+
+  }
+
+
+   public eliminarObjeto(objetoId: any) {
+
+    let url = `${URL_LOCAL}/objeto/delete/${objetoId}`
+
+    return this.http.delete(url).pipe(map((resp: any) => {
+      console.log("Servicio", resp)
+
+      return resp
+    }))
+
+  }
+
+  public updateObjeto(pokemon: Objeto) {
+    let url = `${URL_LOCAL}/objeto/update`
+
+    return this.http.put(url, pokemon).pipe(map((resp: any) => {
+      console.log("Servicio", resp)
+
+      return resp
+    }))
+  }
+
    
 }
