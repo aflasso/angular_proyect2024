@@ -7,15 +7,20 @@ import { PokemonsComponent } from './pages/pokemons/pokemons.component';
 import { AddEditFormPokemonComponent } from './components/add-edit-form-pokemon/add-edit-form-pokemon.component';
 import { ObjetosComponent } from './pages/objetos/objetos.component';
 import { AddEditFormObjetoComponent } from './components/add-edit-form-objeto/add-edit-form-objeto.component';
+import { LoginComponent } from './pages/login/login.component';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptorService } from './auth/auth-interceptor.service';
+import { tokenGuardGuard } from './auth/guards/token-guard.guard';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
-  {path: 'personas', component: PersonasComponent},
-  {path: 'FormPersona/:id', component: AddEditPersonaFormComponent},
-  {path: 'pokemons', component: PokemonsComponent},
-  {path: 'FormPokemon/:id', component: AddEditFormPokemonComponent},
-  {path: 'objetos', component: ObjetosComponent},
-  {path: 'FormObjeto/:id', component: AddEditFormObjetoComponent},
+  {path: 'personas', component: PersonasComponent, canActivate: [tokenGuardGuard]},
+  {path: 'FormPersona/:id', component: AddEditPersonaFormComponent, canActivate: [tokenGuardGuard]},
+  {path: 'pokemons', component: PokemonsComponent, canActivate: [tokenGuardGuard]},
+  {path: 'FormPokemon/:id', component: AddEditFormPokemonComponent, canActivate: [tokenGuardGuard]},
+  {path: 'objetos', component: ObjetosComponent, canActivate: [tokenGuardGuard]},
+  {path: 'FormObjeto/:id', component: AddEditFormObjetoComponent, canActivate: [tokenGuardGuard]},
+  {path: 'login', component: LoginComponent},
   {path: '**', pathMatch: 'full', component: HomeComponent}
 ];
 

@@ -63,6 +63,18 @@ export class PersonasComponent {
           error: (error) => {
     
             console.error(error)
+
+            if (error.status == 401) {
+              Swal.fire({
+                title: '¡Error!',
+                text: 'Debes iniciar session para esta accion',
+                icon: 'error',
+                confirmButtonText: 'Intentar de nuevo'
+              });
+
+              return
+            }
+
             Swal.fire({
               title: '¡Error!',
               text: 'Ocurrió un problema al eliminar el usuario.',

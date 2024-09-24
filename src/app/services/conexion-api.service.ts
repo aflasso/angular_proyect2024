@@ -10,6 +10,17 @@ export class ConexionApiService {
 
   constructor(public http: HttpClient) {}
 
+  public login(email : string, passwordUser: string) {
+
+    let url = `${URL_LOCAL}/prueba/login`
+
+    return this.http.post(url, {email, passwordUser}).pipe(map((resp : any) => {
+      console.log('DATOS: ', resp); 
+      return resp
+    }))
+
+
+  }
    
    public getPersonas() {
     

@@ -5,8 +5,9 @@ CREATE TABLE `users` (
   `email` varchar(100) NOT NULL,
   `fecha_creacion` date DEFAULT curdate(),
   `activo` tinyint(4) DEFAULT 1,
+  `rol` varchar(50) NOT NULL DEFAULT 'user',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 CREATE TABLE `pokemon` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
